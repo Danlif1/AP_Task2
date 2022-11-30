@@ -5,10 +5,9 @@
 #ifndef AP_TASK2_SAFETYCHECKS_H
 #define AP_TASK2_SAFETYCHECKS_H
 
+#include <iostream>
 
-class SafetyChecks {
-    bool NumberOfArguments(int argc);
-};
+bool NumberOfArguments(int argc);
 
 
 #endif //AP_TASK2_SAFETYCHECKS_H

@@ -9,10 +9,10 @@ bool NumberOfArguments(int argc){
         return true;
     }
     else if (argc < 4){
-        std::cout << "Insufficient information please try to add more arguments in the command line" << endl;
+        std::cout << "Insufficient information please try to add more arguments in the command line" << std::endl;
     }
     else {
-        std::cout << "Too much information please try to add less arguments in the command line" << endl;
+        std::cout << "Too much information please try to add less arguments in the command line" << std::endl;
     }
     return false;
 

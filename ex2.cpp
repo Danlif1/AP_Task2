@@ -2,6 +2,8 @@
 // Created by Daniel Lifshitz on 30/11/2022.
 //
 #include "SafetyChecks.h"
+#include <iostream>
+
 int main(int argc, char **argv) {
     if(NumberOfArguments(argc)){
         //TODO: Read the file.

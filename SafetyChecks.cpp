@@ -43,4 +43,21 @@ bool PointsCount(int k, int amountOfPoints){
     else{
         std::cout << "K is too big please try to enter a smaller number as K" << std::endl;
     }
+    return false;
+}
+
+/**
+ * @brief stoi() doesn't work for numbers starting with a letter so we check if the first digit is a number.
+ * We check the if because k[0] - '0' is actually the first digit of k and by that we can know if the first digit is a number or not.
+ * 
+ * @param k The string given from argv for the KNN algorithm.
+ * @return int return the actual number of k.
+ */
+int KCheck(std::string k){
+    int firstDigit = k[0]-'0';
+    if (firstDigit >= 0 && firstDigit < 10){
+        return stoi(k);
+    }
+    std::cout << "k should be a number" << std::endl;
+    return 0;
 }

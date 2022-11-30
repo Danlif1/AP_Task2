@@ -9,7 +9,7 @@
  * @brief Iris will be represented as points in space as it is the same and could be minimally changed to fit other discriptions.
  * This comment will be moved afterwards to the Point file.
  */
-//std::vector<Point> ReadIrisFile(int argc, char** argv);
+//std::vector<Point> ReadIrisFile(int, char**);
 
 
 #endif //AP_TASK2_POINTREADER_H

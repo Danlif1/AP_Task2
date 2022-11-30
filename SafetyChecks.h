@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-bool NumberOfArguments(int argc);
-
+bool NumberOfArguments(int);
+bool PointsCount(int, int);
 
 #endif //AP_TASK2_SAFETYCHECKS_H

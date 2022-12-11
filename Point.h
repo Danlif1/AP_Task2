@@ -7,31 +7,26 @@
 
 #include <vector>
 #include <iostream>
-//Called PointType so you could change the thing you try to classfiy/want to add more types.
-enum pointType
-{
-    setosa,
-    virginica,
-    versicolor,
-    UNKNOWN
-};
+#include "SafetyChecks.h"
+//Called PointType so you could change the thing you try to classify/want to add more types.
+
 
 class Point {
     // We don't want the iris specific stats to be changed.
     private:
         std::vector<double> pointStats;
-        pointType type;
+        std::string type;
     public:
-        Point(std::vector<double> = {0}, pointType type = UNKNOWN);
+        Point(std::vector<double> = {0}, std::string type = "UNKNOWN");
         Point(const Point& point);
-        //We do want to access the information of the iris so we will create getters.
-        //But we want to be able to add as much information of the iris as wanted.
+        //We want to be able to add as much information of the point as wanted.
         double getStat(int) const;
-        pointType getType() const;
+        std::string getType() const;
         std::vector<double> getAll() const;
-        
-
+        void setFromVector(std::vector<std::string>);
 };
+
+std::ostream& operator<<(std::ostream& os, const Point& point);
 
 
 #endif //AP_TASK2_POINT_H

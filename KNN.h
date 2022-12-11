@@ -18,9 +18,9 @@ class KNN {
 
 public: KNN(int k, string metric);
     void fit(vector<Point> classified_point);
-    string predict(vector<double>);
+    string predict(Point newpoint);
     vector<tuple<double,string>> distance(vector<double> a);
-    string nearestNeighbor(vector<tuple<double,string>> distances);
+    string nearestNeighbor(vector<tuple<double,string>> distances) const;
 
 
 };

@@ -14,7 +14,7 @@
  * @param Stats A vector of information about the point.
  * @param type The type of the point.
  */
-Point::Point(std::vector<double> Stats, pointType type) 
+Point::Point(std::vector<double> Stats, std::string type)
             : pointStats(Stats), type(type) {}
 
 /**
@@ -53,7 +53,7 @@ double Point::getStat(int place) const {
  * 
  * @return pointType The type the point has.
  */
-pointType Point::getType() const{
+std::string Point::getType() const{
     return type;
 }
 
@@ -66,6 +66,38 @@ pointType Point::getType() const{
  */
 std::vector<double> Point::getAll() const {
     return pointStats;
+}
+/**
+ * Make a point from a vector of the fields given in strings.
+ * @param v The vector.
+ */
+void Point::setFromVector(std::vector<std::string> v) {
+    // The first size()-2 of the vector arguments should be doubles representing the stats of the points.
+    for (int i = 0; i < v.size() - 1; i++){
+        if(/**isDouble(v[i]**/){
+            this->pointStats[i] = std::stod(v[i]);
+        }
+        throw std::invalid_argument("All of the point stats should be numbers not strings");
+    }
+    this->type = v[v.size()-1];
+}
+
+
+
+/**
+ * << operator for Point.
+ * @param os The out stream
+ * @param point Point object
+ * @return Out stream.
+ */
+std::ostream &operator<<(std::ostream &os, const Point &point) {
+    std::string output = "";
+    for (int i = 0; i < point.getAll().size(); i++){
+        output += std::to_string(point.getStat(i));
+        output += " ";
+    }
+    output += point.getType();
+    return os << output;
 }
 
 

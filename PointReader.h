@@ -1,15 +1,22 @@
 //
 // Created by Daniel Lifshitz on 30/11/2022.
 //
-
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
+#include "Point.h"
 #ifndef AP_TASK2_POINTREADER_H
 #define AP_TASK2_POINTREADER_H
 
-/**
- * @brief Iris will be represented as points in space as it is the same and could be minimally changed to fit other discriptions.
- * This comment will be moved afterwards to the Point file.
- */
-//std::vector<Point> ReadIrisFile(int argc, char** argv);
-
+class PointReader {
+private:
+    std::string fileName;
+    std::ifstream fin;
+    std::vector<std::string> row;
+public:
+    PointReader(const std::string&);
+    bool getNextPoint(Point&);
+};
 
 #endif //AP_TASK2_POINTREADER_H

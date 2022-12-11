@@ -10,5 +10,6 @@
 bool NumberOfArguments(int);
 bool PointsCount(int, int);
 int kCheck(std::string);
+bool IsDouble(std::string);
 
 #endif //AP_TASK2_SAFETYCHECKS_H

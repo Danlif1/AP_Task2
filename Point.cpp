@@ -4,18 +4,18 @@
 
 #include "Point.h"
 /**
- * @brief Iris will be represented as points in space as it is the same and could be minimally changed to fit other discriptions.
+ * @brief Iris will be represented as points in space as it is the same and could be minimally changed to fit other descriptions.
  */
 
 
 /**
  * @brief Construct a new Point:: Point object using a vector and a type
  * 
- * @param Stats A vector of information about the point.
+ * @param Cords A vector of information about the point.
  * @param type The type of the point.
  */
-Point::Point(std::vector<double> Stats, std::string type)
-            : pointStats(Stats), type(type) {}
+Point::Point(std::vector<double> Cords, std::string type)
+            : pointCords(Cords), type(type) {}
 
 /**
  * @brief Construct a new Point:: Point object using a different point.
@@ -24,7 +24,7 @@ Point::Point(std::vector<double> Stats, std::string type)
  */
 Point::Point(const Point& point){
     for (int i = 0; i < point.getAll().size(); i++){
-        this->pointStats[i] = point.getStat(i);
+        this->pointCords[i] = point.getCord(i);
     }
     this->type = point.getType();
 }
@@ -33,17 +33,17 @@ Point::Point(const Point& point){
 
 /**
  * @brief Specific getter.
- * Will return a specific stat in the point.
+ * Will return a specific coordinate in the point.
  * for example: in (x,y,z) you could get x y or z.
  * 
- * @return double The stat of the point asked by the user.
+ * @return double The coordinate of the point asked by the user.
  */
-double Point::getStat(int place) const {
-    if(place >=0 && place <= pointStats.size()){
-        return pointStats[place];
+double Point::getCord(int place) const {
+    if(place >=0 && place <= pointCords.size()){
+        return pointCords[place];
     }
     else {
-        std::cout << "No stat like that exists please pick another number";
+        std::cout << "No coordinate like that exists please pick another number";
         return NULL;
     }
 }
@@ -65,19 +65,19 @@ std::string Point::getType() const{
  * @return std::vector<double> The entire point.
  */
 std::vector<double> Point::getAll() const {
-    return pointStats;
+    return pointCords;
 }
 /**
  * Make a point from a vector of the fields given in strings.
  * @param v The vector.
  */
 void Point::setFromVector(std::vector<std::string> v) {
-    // The first size()-2 of the vector arguments should be doubles representing the stats of the points.
+    // The first size()-2 of the vector arguments should be doubles representing the coordinates of the points.
     for (int i = 0; i < v.size() - 1; i++){
         if(/**isDouble(v[i]**/){
-            this->pointStats[i] = std::stod(v[i]);
+            this->pointCords[i] = std::stod(v[i]);
         }
-        throw std::invalid_argument("All of the point stats should be numbers not strings");
+        throw std::invalid_argument("All of the point coordinates should be numbers not strings");
     }
     this->type = v[v.size()-1];
 }
@@ -93,7 +93,7 @@ void Point::setFromVector(std::vector<std::string> v) {
 std::ostream &operator<<(std::ostream &os, const Point &point) {
     std::string output = "";
     for (int i = 0; i < point.getAll().size(); i++){
-        output += std::to_string(point.getStat(i));
+        output += std::to_string(point.getCord(i));
         output += " ";
     }
     output += point.getType();

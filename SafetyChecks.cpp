@@ -61,3 +61,18 @@ int KCheck(std::string k){
     std::cout << "k should be a number" << std::endl;
     return 0;
 }
+
+/**
+ * Checking if maybeDouble is a number.
+ * @param maybeDouble The string we got we want to confirm to a number.
+ * @return True if the first digit is a number; false otherwise.
+ */
+bool IsDouble(std::string maybeDouble){
+    int firstDigit = maybeDouble[0] - '0';
+    if (firstDigit >= 0 && firstDigit <= 9){
+        //The function stod(maybeDouble) will return a double even if there are letters in th number.
+        return true;
+    }
+    //The first digit is not a number thus stod(maybeDouble) will return an error and we do not want that to happen.
+    return false;
+}

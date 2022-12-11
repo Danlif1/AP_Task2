@@ -12,15 +12,15 @@
 
 
 class Point {
-    // We don't want the iris specific stats to be changed.
+    // We don't want the iris specific coordinates to be changed.
     private:
-        std::vector<double> pointStats;
+        std::vector<double> pointCords;
         std::string type;
     public:
         Point(std::vector<double> = {0}, std::string type = "UNKNOWN");
         Point(const Point& point);
         //We want to be able to add as much information of the point as wanted.
-        double getStat(int) const;
+        double getCord(int) const;
         std::string getType() const;
         std::vector<double> getAll() const;
         void setFromVector(std::vector<std::string>);

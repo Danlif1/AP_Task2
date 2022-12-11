@@ -76,3 +76,18 @@ bool IsDouble(std::string maybeDouble){
     //The first digit is not a number thus stod(maybeDouble) will return an error and we do not want that to happen.
     return false;
 }
+
+/**
+ * Checking if all the points in the array points have the same amount of coordinates.
+ * @param points The array of points we check on.
+ * @return False if not all the points has the same amount of coordinates; True otherwise.
+ */
+bool IsSameSize(std::vector<Point> points){
+    int goodSize = points[0].size()
+    for(int i = 0; i < points.size(); i++){
+        if (goodSize != points[i].size()){
+            return false;
+        }
+    }
+    return true;
+}

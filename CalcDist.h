@@ -5,14 +5,14 @@
 #include <vector>
 #include <string>
 #include <math.h>
-#include <Point.h>
-double Euclidian(std::vector<int>, std::vector<int>);
-double Manhattan(std::vector<int>, std::vector<int>);
-double Chev(std::vector<int>, std::vector<int>);
-double Canberra(std::vector<int>, std::vector<int>);
-double Minkowski(std::vector<int>, std::vector<int>, int);
+#include "Point.h"
+double Euclidan(std::vector<double>, std::vector<double>);
+double Manhattan(std::vector<double>, std::vector<double>);
+double Chebyshev(std::vector<double>, std::vector<double>);
+double Canberra(std::vector<double>, std::vector<double>);
+double Minkowski(std::vector<double>, std::vector<double>, int);
 
 char* doubleFormat(double);
 
-double calcDistance(std::string, vector<double>, Point);
+double calcDistance(std::string, std::vector<double>, Point);
 #endif //T1_calcDist_HPP

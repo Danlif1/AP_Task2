@@ -92,12 +92,12 @@ char* doubleFormat(double num) {
     return output;
 }
 
-double calcDistance(std::string metric, vector<double> uPoint, Point kPoint){
+double calcDistance(std::string metric, std::vector<double> uPoint, Point kPoint){
     //A distance metric is given by 3 letters.
     for (int i = 0; i < 3; i++){
         metric[i] = std::toupper(metric[i]);
     }
-    metric = metric.toUpper
+    metric = metric.toUpper();
     int isEqual = metric.compare("AUC");
     if (!isEqual){
         //Meaning its AUC.

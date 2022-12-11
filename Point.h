@@ -5,33 +5,28 @@
 #ifndef AP_TASK2_POINT_H
 #define AP_TASK2_POINT_H
 
-//Called PointType so you could change the thing you try to classfiy/want to add more types.
-enum pointType
-{
-    setosa,
-    virginica,
-    versicolor,
-    UNKNOWN
-};
+#include <vector>
+#include <iostream>
+#include "SafetyChecks.h"
+//Called PointType so you could change the thing you try to classify/want to add more types.
+
 
 class Point {
     // We don't want the iris specific stats to be changed.
     private:
-        double width;
-        double sepalLength;
-        double sepalWidth;
-        double petalLength;
-        pointType type;
+        std::vector<double> pointStats;
+        std::string type;
     public:
-        //TODO: Add Constractor/s for point.
-        //We do want to access the information of the iris so we will create getters.
-        double getWidth() const;
-        double getSepalLength() const;
-        double getSepalWidth() const;
-        double getPetalLength() const;
-        pointType getType() const;
-
+        Point(std::vector<double> = {0}, std::string type = "UNKNOWN");
+        Point(const Point& point);
+        //We want to be able to add as much information of the point as wanted.
+        double getStat(int) const;
+        std::string getType() const;
+        std::vector<double> getAll() const;
+        void setFromVector(std::vector<std::string>);
 };
+
+std::ostream& operator<<(std::ostream& os, const Point& point);
 
 
 #endif //AP_TASK2_POINT_H

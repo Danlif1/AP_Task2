@@ -21,11 +21,10 @@ KNN::KNN(int k, string metric) {
  * @param x - classified vectors
  * @param y - labels corresponding to given data
  */
-void KNN::fit(vector<Point> x, vector<string> y) {
+void KNN::fit(std::vector<Point> classified_points) {
     //need to decide if we store the data as to separate arrays. might be better to utilize the class point.
     //if we decide to not separate them we need to take care of functions in distance method.
-    KNN::data = x;
-    KNN::labels = y;
+    KNN::data = classified_points;
 }
 
 /**
@@ -49,7 +48,7 @@ vector<tuple<double, string>> KNN::distance(vector<double> a) {
     for (int i = 0; i < KNN::data.size(); ++i) {
         //add calcDistance to distance file
         tmp = calcDistance(distance_metric, a, data[i]);
-        dis_from_point.emplace_back(tmp, labels[i]);
+        dis_from_point.emplace_back(tmp, data[i].getType());
     }
     return dis_from_point;
 }

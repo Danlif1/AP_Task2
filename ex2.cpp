@@ -15,14 +15,16 @@ int main(int argc, char **argv) {
         std::string file = argv[2];
         //Saving the distance metric.
         std::string metric = argv[3];
-        //Create classified Iris vector.
+        //Create classified vector.
         PointReader classifiedPointReader(file);
         Point cPoint;
         std::vector<Point> classifiedPoints;
+        //creating an array of classified points.
         while (classifiedPointReader.getNextPoint(cPoint)) { classifiedPoints.push_back(cPoint); }
-        //Making an infinite loop to read points.
+        //initializing a run of KNN
         KNN knn_run(k,metric);
         knn_run.fit(classifiedPoints);
+        //Making an infinite loop to read points.
         while (true) {
             //sPoint = string point.
             std::string sPoint;
@@ -31,8 +33,10 @@ int main(int argc, char **argv) {
             Point uPoint;
             //The types don't match here. this function takes a vector<string> and not a regular char*.
             uPoint.setFromVector(sPoint);
-            knn_run.predict(uPoint);
-            //TODO: Add a KNN calculating algorithm.
+            //DONE: Add a KNN calculating algorithm.
+            //print predicted label to screen.
+            std::cout << knn_run.predict(uPoint);
+
 
         }
         //DONE: Read the file.

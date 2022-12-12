@@ -5,7 +5,7 @@
 #include "PointReader.h"
 
 /**
- * @brief Iris will be represented as points in space as it is the same and could be minimally changed to fit other discriptions.
+ * @brief Iris will be represented as points in space as it is the same and could be minimally changed to fit other descriptions.
  * This comment will be moved afterwards to the Point file.
  */
 /**
@@ -14,12 +14,16 @@
  *
  * @param fileName The name of the file we want to read from.
  */
-PointReader::PointReader(const std::string& fileName) : fin(fileName){
+PointReader::PointReader(const std::string& fileName) {
+    this->fileName = fileName;
+    fin.open(fileName);
     if(!fin.is_open()) {
         //Error Message
         std::cout<< "Could not open the file " << fileName << std::endl;
         std::cout<<"Error code: " << strerror(errno) << std::endl;
     }
+
+
 }
 
 /**

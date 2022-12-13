@@ -24,5 +24,35 @@ With those files we implement all the edge cases tests and checking for wrong in
 ### main.cpp:
 With that file we run the entire program and printing the type of the vector inputted.
 
+**Run and compile**
 
+If the only files you have in your directory are the needed files, mainly ```ex2.cpp```, ```CalcDist.cpp```, ```KNN.cpp```, ```Point.cpp```, ```PointReader.cpp``` and ```SafetyChecks.cpp``` **and their headers (.hpp)**.
 
+You can compile the code with this command:  
+```
+g++ -std=c++11 *.cpp -o program
+```
+Otherwise you need to list them:
+```
+g++ -std=c++11  ex2.cpp CalcDist.cpp KNN.cpp Point.cpp PointReader.cpp SafetyChecks.cpp -o
+```
+
+And run on linux/mac: 
+```
+./a 3 iris_classified.csv MAN
+```
+and on windows:
+```
+a 3 iris_classified.csv MAN
+```
+
+**Example**
+
+If you input:
+```
+1 2 3 4
+```
+You will get:
+```
+Iris-versicolor
+```

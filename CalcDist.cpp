@@ -95,6 +95,13 @@ char *doubleFormat(double num) {
     return output;
 }
 
+/**
+ * Calculating the distance between two points using the distance metric given.
+ * @param metric The distance metric.
+ * @param uPoint The first point.
+ * @param kPoint The second point.
+ * @return The distance.
+ */
 double calcDistance(std::string metric, std::vector<double> uPoint, Point kPoint) {
     //A distance metric is given by 3 letters.
     for (int i = 0; i < 3; i++) {

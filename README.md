@@ -37,6 +37,11 @@ Otherwise you need to list them:
 g++ -std=c++11  ex2.cpp CalcDist.cpp KNN.cpp Point.cpp PointReader.cpp SafetyChecks.cpp
 ```
 
+You can also use Makefile with this command:
+```
+make a.out
+```
+
 And run on linux/mac: 
 ```
 ./a.out 3 iris_classified.csv MAN

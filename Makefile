@@ -7,11 +7,11 @@ CC = g++
 CFLAGS = -std=c++11
  
 # **************************************************
-a.out: main.o SafetyChecks.o Point.o PointReader.o KNN.o CalcDist.o
-	$(CC) $(CFLAGS) main.o SafetyChecks.o Point.o PointReader.o KNN.o CalcDist.o
+a.out: ex2.o SafetyChecks.o Point.o PointReader.o KNN.o CalcDist.o
+	$(CC) $(CFLAGS) ex2.o SafetyChecks.o Point.o PointReader.o KNN.o CalcDist.o
 
-main.o: main.cpp SafetyChecks.h Point.h PointReader.h KNN.h
-	$(CC) $(CFLAGS) main.cpp -c
+ex2.o: ex2.cpp SafetyChecks.h Point.h PointReader.h KNN.h
+	$(CC) $(CFLAGS) ex2.cpp -c
 
 SafetyChecks.o: SafetyChecks.h SafetyChecks.cpp
 	$(CC) $(CFLAGS) SafetyChecks.cpp -c

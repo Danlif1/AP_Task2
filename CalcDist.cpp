@@ -100,7 +100,6 @@ double calcDistance(std::string metric, std::vector<double> uPoint, Point kPoint
     for (int i = 0; i < 3; i++) {
         metric[i] = std::toupper(metric[i]);
     }
-    metric = metric.toUpper();
     int isEqual = metric.compare("AUC");
     if (!isEqual) {
         //Meaning its AUC.

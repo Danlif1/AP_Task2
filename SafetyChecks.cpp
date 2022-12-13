@@ -77,6 +77,12 @@ bool IsSameSize(std::vector<Point> points){
     return true;
 }
 
+/**
+ * Checking if both points have vectors that are the same size.
+ * @param uPoint The first point.
+ * @param cPoint The second point.
+ * @return True if both vectors are the same size; false otherwise.
+ */
 bool GoodVector(Point uPoint, Point cPoint){
     if(uPoint.getAll().size() == cPoint.getAll().size()){
         return true;
@@ -84,7 +90,11 @@ bool GoodVector(Point uPoint, Point cPoint){
     return false;
 }
 
-
+/**
+ * Checking that the file name ends with .csv
+ * @param fileName The name of the file.
+ * @return True if the file ends with .csv; false otherwise.
+ */
 bool CheckFile (std::string const &fileName) {
     //Helped by https://stackoverflow.com/questions/874134/find-out-if-string-ends-with-another-string-in-c.
     std::string fileEnding = ".csv";
@@ -100,6 +110,11 @@ bool CheckFile (std::string const &fileName) {
     return false;
 }
 
+/**
+ * Checking if the distance metric is one of the given five.
+ * @param metric The distance metric we got.
+ * @return True if the metric is one of the given five; false otherwise.
+ */
 bool CheckMetric(std::string metric){
     for (int i = 0; i < 3; i++) {
         metric[i] = std::toupper(metric[i]);

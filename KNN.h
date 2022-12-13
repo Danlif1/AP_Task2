@@ -2,17 +2,15 @@
 #ifndef AP_TASK2_KNN_H
 #define AP_TASK2_KNN_H
 
-#include "Point.h"
+#include <tuple>
+#include <algorithm>
 #include "CalcDist.h"
-#include <iostream>
-#include <vector>
-#include <string>
 
-using namespace std;
 
 
 class KNN {
     int k;
+
     string distance_metric;
     vector<Point> data;
 
@@ -27,7 +25,9 @@ public:
     void fit(vector<Point> classified_point);
 
     string predict(Point newpoint);
+=======
+    std::string distance_metric;
+    std::vector<Point> data;
+
 };
-
-
 #endif //AP_TASK2_KNN_H

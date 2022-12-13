@@ -21,7 +21,7 @@
 **SafetyChecks.h/cpp:**
  With those files we implement all the edge cases tests and checking for wrong input.
 
-**main.cpp*:*
+**main.cpp:**
  With that file we run the entire program and printing the type of the vector inputted.
 
 

@@ -14,7 +14,6 @@ double Chebyshev(std::vector<double>, std::vector<double>);
 double Canberra(std::vector<double>, std::vector<double>);
 double Minkowski(std::vector<double>, std::vector<double>, int);
 
-char* doubleFormat(double);
 
 double calcDistance(std::string, std::vector<double>, Point);
 #endif //AP_TASK2_calcDist_HPP

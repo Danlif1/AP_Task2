@@ -34,16 +34,16 @@ g++ -std=c++11 *.cpp -o
 ```
 Otherwise you need to list them:
 ```
-g++ -std=c++11  ex2.cpp CalcDist.cpp KNN.cpp Point.cpp PointReader.cpp SafetyChecks.cpp -o
+g++ -std=c++11  ex2.cpp CalcDist.cpp KNN.cpp Point.cpp PointReader.cpp SafetyChecks.cpp
 ```
 
 And run on linux/mac: 
 ```
-./a 3 iris_classified.csv MAN
+./a.out 3 iris_classified.csv MAN
 ```
 and on windows:
 ```
-a 3 iris_classified.csv MAN
+a.out 3 iris_classified.csv MAN
 ```
 
 **Example**

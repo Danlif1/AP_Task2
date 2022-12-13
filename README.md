@@ -30,7 +30,7 @@ If the only files you have in your directory are the needed files, mainly ```ex2
 
 You can compile the code with this command:  
 ```
-g++ -std=c++11 *.cpp -o program
+g++ -std=c++11 *.cpp -o
 ```
 Otherwise you need to list them:
 ```

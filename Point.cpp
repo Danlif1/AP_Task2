@@ -3,7 +3,6 @@
 //
 
 #include "Point.h"
-using namespace std;
 /**
  * @brief Iris will be represented as points in space as it is the same and could be minimally changed to fit other descriptions.
  */
@@ -68,14 +67,15 @@ std::string Point::getType() const{
 std::vector<double> Point::getAll() const {
     return pointCords;
 }
+
+
 /**
- * Make a point from a vector of the fields given in strings.
- * @param v The vector.
+ * Setting a point using a string.
+ * @param v The string of the point. (for example: 1 2 3 4 5 pointType)
+ * @param spacer The space between coordinates in the string. (for example: ' ')
  */
-
-
-
 void Point::setFromString(std::string v, char spacer) {
+    bool validInput = true;
     std::vector<double> v2;
     //using code from Task 1.
     std::stringstream ss(v);
@@ -87,14 +87,26 @@ void Point::setFromString(std::string v, char spacer) {
         else {
             //This is the type.
             this->type = s;
+            if (std::getline(ss, s, spacer)) {
+                validInput = false;
+                std::cout << "Invalid input." << std::endl;
+                break;
+            }
         }
     }
-    this->pointCords = v2;
+    if (validInput) {
+        this->pointCords = v2;
+    }
 }
 
+/**
+ * Setting a point using a vector of string (for example: {"1","2","3","4","5","pointType"})
+ * @param Cords The coordinates of the point we want to set.
+ */
 void Point::setFromVector(std::vector<std::string> Cords) {
     this->pointCords.clear();
     for (int i = 0; i < Cords.size() - 1; i++){
+
         if (IsDouble(Cords[i])){
             this->pointCords.push_back(std::stod(Cords[i]));
         }

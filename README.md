@@ -45,6 +45,7 @@ and on windows:
 ```
 a.out 3 iris_classified.csv MAN
 ```
+**Make sure that the classified file is in your working directory otherwise the program won't be able to find it.**
 
 **Example**
 

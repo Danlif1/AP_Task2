@@ -1,11 +1,10 @@
-#ifndef AP_TASK2_calcDist_HPP
-#define AP_TASK2_calcDist_HPP
+#ifndef AP_Task2_calcDist_HPP
+#define AP_Task2_calcDist_HPP
 
-#include <iostream>
-#include <vector>
-#include <string>
+
 #include <math.h>
 #include "Point.h"
+using namespace std;
 double Euclidan(std::vector<double>, std::vector<double>);
 double Manhattan(std::vector<double>, std::vector<double>);
 double Chebyshev(std::vector<double>, std::vector<double>);
@@ -15,4 +14,4 @@ double Minkowski(std::vector<double>, std::vector<double>, int);
 char* doubleFormat(double);
 
 double calcDistance(std::string, std::vector<double>, Point);
-#endif //AP_TASK2_calcDist_HPP
+#endif //AP_Task2_calcDist_HPP

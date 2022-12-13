@@ -78,24 +78,6 @@ double Canberra(std::vector<double> point1, std::vector<double> point2) {
 
 
 /**
- * @brief Formatting the result gotten in the distance function into a double with 16 digits given a non integer.
- * and a .0 number given an integer.
- * 
- * @param num The result gotten from the distance function.
- * @return char* The result formatted into a double.
- */
-char *doubleFormat(double num) {
-    int inum = num;
-    char *perc = (char *) "%.16f";
-    if ((double) (num - inum) == 0.0) {
-        perc = (char *) "%.1f";
-    }
-    char *output = (char *) malloc(100);
-    snprintf(output, 100, perc, num);
-    return output;
-}
-
-/**
  * Calculating the distance between two points using the distance metric given.
  * @param metric The distance metric.
  * @param uPoint The first point.

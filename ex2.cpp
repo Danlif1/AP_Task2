@@ -10,6 +10,8 @@
  * @param argv Supposed to have ./a.out k file distance_metric.
  */
 int main(int argc, char **argv) {
+
+=======
     std::fstream fout;
 
     // opens an existing csv file or creates a new file.
@@ -77,6 +79,7 @@ int main(int argc, char **argv) {
     else {
         std::cout << "Not all arguments are given please enter the K, file and distance metric." << std::endl;
     }
+
 
 }
 

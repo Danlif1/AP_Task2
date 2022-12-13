@@ -3,8 +3,12 @@
 #include "Point.h"
 #include "PointReader.h"
 #include "KNN.h"
-#include <iostream>
 
+/**
+ * The main function of the second task.
+ * @param argc The amount of arguments gotten from the command line.
+ * @param argv Supposed to have ./a.out k file distance_metric.
+ */
 int main(int argc, char **argv) {
     std::fstream fout;
 
@@ -14,7 +18,7 @@ int main(int argc, char **argv) {
         //Saving the K.
         int k;
         if (KCheck(argv[1])) {
-            k = stoi(argv[1]);
+            k = std::stoi(argv[1]);
         } else {
             //K is equal 0, so we need to terminate the program.
             return 0;
@@ -38,13 +42,12 @@ int main(int argc, char **argv) {
         std::vector<Point> classifiedPoints;
         //creating an array of classified points.
         while (classifiedPointReader.getNextPoint(cPoint)) { classifiedPoints.push_back(cPoint); }
-
         if (!PointsCount(k, classifiedPoints.size())){
             //K is either too big or too small so we need to terminate the program.
             return 0;
         }
         if(!IsSameSize(classifiedPoints)){
-            cout << "not all vectors are the same size, please enter the vectors again." << std::endl;
+            std::cout << "not all vectors are the same size, please use a different file." << std::endl;
             return 0;
         }
         //initializing a run of KNN
@@ -56,25 +59,20 @@ int main(int argc, char **argv) {
             Point uPoint;
             do {
                 std::string sPoint;
-                getline(cin, sPoint);
+                getline(std::cin, sPoint);
                 //uPoint = unclassified point.
                 //The types don't match here. this function takes a vector<string> and not a regular char*.
                 uPoint.setFromString(sPoint, ' ');
                 if (!GoodVector(uPoint, classifiedPoints[0])){
-                    std::cout << "Please enter the correct amount of arguments into the vector." << std::endl;
+                    if (!uPoint.getAll().empty()) {
+                        std::cout << "Please enter the correct amount of arguments into the vector." << std::endl;
+                    }
+                } else {
+                    std::cout << knn_run.predict(uPoint) << std::endl;
                 }
             } while (!GoodVector(uPoint, classifiedPoints[0]));
 
-
-            //DONE: Add a KNN calculating algorithm.
-            //print predicted label to screen.
-            std::cout << knn_run.predict(uPoint);
-
-
         }
-        //DONE: Read the file.
-        //DONE: Safety checks to the code.
-        //TODO: Add explanations to the code.
     }
     else {
         std::cout << "Not all arguments are given please enter the K, file and distance metric." << std::endl;

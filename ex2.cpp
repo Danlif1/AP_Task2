@@ -11,7 +11,7 @@
  */
 int main(int argc, char **argv) {
 
-=======
+
     std::fstream fout;
 
     // opens an existing csv file or creates a new file.

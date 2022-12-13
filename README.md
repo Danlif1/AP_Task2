@@ -6,10 +6,10 @@
 
 **The Files:**
 
-***CalcDist.h/cpp**
+***CalcDist.h/cpp***
 With those files we calculate all the distances from the vector for the KNN algorithm.
 
-***KNN.h/cpp**
+**KNN.h/cpp**
 With those files we implement the KNN algorithm in O(n*log(n)) time and O(n) space. (n is the amount of vectors).
 
 ***Point.h/cpp**

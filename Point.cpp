@@ -111,7 +111,9 @@ void Point::setFromVector(std::vector<std::string> Cords) {
             this->pointCords.push_back(std::stod(Cords[i]));
         }
         else {
-            throw std::invalid_argument("All of the coordinates of the points should be numbers");
+            //By clearing the pointCords we invoke the error that not all the vectors are the same size.
+            this->pointCords.clear();
+            break;
         }
     }
     this->type = Cords[Cords.size()-1];

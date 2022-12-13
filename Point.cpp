@@ -86,12 +86,9 @@ void Point::setFromString(std::string v, char spacer) {
         }
         else {
             //This is the type.
-            this->type = s;
-            if (std::getline(ss, s, spacer)) {
-                validInput = false;
-                std::cout << "Invalid input." << std::endl;
-                break;
-            }
+            validInput = false;
+            std::cout << "Invalid input." << std::endl;
+            break;
         }
     }
     if (validInput) {

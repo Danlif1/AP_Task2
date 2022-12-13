@@ -6,79 +6,35 @@
 #include <iostream>
 
 int main(int argc, char **argv) {
-    std::fstream fout;
+    KNN new_knn(3, "AUC");
+    vector<Point> classified_vector;
+    Point point1(vector<double>({5.4, 3.9, 1.7, 0.4}), "Iris-setosa");
+    classified_vector.push_back(point1);
+    Point point2(vector<double>({4.6, 3.4, 1.4, 0.3}), "Iris-setosa");
+    classified_vector.push_back(point2);
+    Point point3(vector<double>({5, 3.4, 1.5, 0.2}), "Iris-setosa");
+    classified_vector.push_back(point3);
+    Point point4(vector<double>({4.4, 2.9, 1.4, 0.2}), "Iris-setosa");
+    classified_vector.push_back(point4);
+    Point point5(vector<double>({6.1, 2.8, 4, 1.3}), "Iris-versicolor");
+    classified_vector.push_back(point5);
+    Point point6(vector<double>({6.6, 3, 4.4, 1.4}), "Iris-versicolor");
+    classified_vector.push_back(point6);
+    Point point7(vector<double>({6.8, 2.8, 4.8, 1.4}), "Iris-versicolor");
+    classified_vector.push_back(point7);
+    Point point8(vector<double>({6.7, 3, 5, 1.7}), "Iris-versicolor");
+    classified_vector.push_back(point8);
+    Point point9(vector<double>({7.7, 2.6, 6.9, 2.3}), "Iris-virginica");
+    classified_vector.push_back(point9);
+    Point point10(vector<double>({7.7, 2.8, 6.7, 2}), "Iris-virginica");
+    classified_vector.push_back(point10);
+    Point point11(vector<double>({6.1, 3, 4.9, 1.8}), "Iris-virginica");
+    classified_vector.push_back(point11);
+    Point point12(vector<double>({5.6, 2.8, 4.9, 1.9}), "Iris-virginica");
+    classified_vector.push_back(point12);
 
-    // opens an existing csv file or creates a new file.
-    fout.open("classified.csv", std::ios::out | std::ios::app);
-    if(NumberOfArguments(argc)) {
-        //Saving the K.
-        int k;
-        if (KCheck(argv[1])) {
-            k = stoi(argv[1]);
-        } else {
-            //K is equal 0, so we need to terminate the program.
-            return 0;
-        }
-        //Saving the file name.
-        std::string file = argv[2];
-        if (!CheckFile(file)) {
-            //The file doesn't end with .csv so we need to terminate the program.
-            return 0;
-        }
-        //Saving the distance metric.
-        std::string metric = argv[3];
-        if (!CheckMetric(metric)) {
-            //The metric isn't one of the given 5 so we need to terminate the program.
-            return 0;
-        }
-        //Create classified vector.
-
-        PointReader classifiedPointReader(file);
-        Point cPoint;
-        std::vector<Point> classifiedPoints;
-        //creating an array of classified points.
-        while (classifiedPointReader.getNextPoint(cPoint)) { classifiedPoints.push_back(cPoint); }
-
-        if (!PointsCount(k, classifiedPoints.size())){
-            //K is either too big or too small so we need to terminate the program.
-            return 0;
-        }
-        if(!IsSameSize(classifiedPoints)){
-            cout << "not all vectors are the same size, please enter the vectors again." << std::endl;
-            return 0;
-        }
-        //initializing a run of KNN
-        KNN knn_run(k,metric);
-        knn_run.fit(classifiedPoints);
-        //Making an infinite loop to read points.
-        while (true) {
-            //sPoint = string point.
-            Point uPoint;
-            do {
-                std::string sPoint;
-                getline(cin, sPoint);
-                //uPoint = unclassified point.
-                //The types don't match here. this function takes a vector<string> and not a regular char*.
-                uPoint.setFromString(sPoint, ' ');
-                if (!GoodVector(uPoint, classifiedPoints[0])){
-                    std::cout << "Please enter the correct amount of arguments into the vector." << std::endl;
-                }
-            } while (!GoodVector(uPoint, classifiedPoints[0]));
-
-
-            //DONE: Add a KNN calculating algorithm.
-            //print predicted label to screen.
-            std::cout << knn_run.predict(uPoint);
-
-
-        }
-        //DONE: Read the file.
-        //DONE: Safety checks to the code.
-        //TODO: Add explanations to the code.
-    }
-    else {
-        std::cout << "Not all arguments are given please enter the K, file and distance metric." << std::endl;
-    }
-
+    new_knn.fit(classified_vector);
+    Point newPoint(vector<double>({7.7, 2.8, 6.7, 2}), " ");
+    cout << new_knn.predict(newPoint);
 }
 

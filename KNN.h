@@ -16,13 +16,17 @@ class KNN {
     string distance_metric;
     vector<Point> data;
 
-public: KNN(int k, string metric);
+    vector<tuple<double, string>> distance(vector<double> a);
+
+    string nearestNeighbor(vector<tuple<double, string>> distances) const;
+
+
+public:
+    KNN(int k, string metric);
+
     void fit(vector<Point> classified_point);
+
     string predict(Point newpoint);
-    vector<tuple<double,string>> distance(vector<double> a);
-    string nearestNeighbor(vector<tuple<double,string>> distances) const;
-
-
 };
 
 

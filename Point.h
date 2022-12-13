@@ -5,33 +5,38 @@
 #ifndef AP_TASK2_POINT_H
 #define AP_TASK2_POINT_H
 
-//Called PointType so you could change the thing you try to classfiy/want to add more types.
-enum pointType
-{
-    setosa,
-    virginica,
-    versicolor,
-    UNKNOWN
-};
+#include <vector>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <cstring>
+#include <fstream>
+
+//Called PointType so you could change the thing you try to classify/want to add more types.
+
 
 class Point {
-    // We don't want the iris specific stats to be changed.
-    private:
-        double width;
-        double sepalLength;
-        double sepalWidth;
-        double petalLength;
-        pointType type;
-    public:
-        //TODO: Add Constractor/s for point.
-        //We do want to access the information of the iris so we will create getters.
-        double getWidth() const;
-        double getSepalLength() const;
-        double getSepalWidth() const;
-        double getPetalLength() const;
-        pointType getType() const;
-
+    // We don't want the iris specific coordinates to be changed.
+private:
+    std::vector<double> pointCords;
+    std::string type;
+public:
+    Point(std::vector<double> = {}, std::string type = "");
+    Point(const Point& point);
+    /**
+     * Getters.
+     */
+    double getCord(int) const;
+    std::string getType() const;
+    std::vector<double> getAll() const;
+    /**
+     * Setters.
+     */
+    void setFromVector(std::vector<std::string>);
+    void setFromString(std::string,char);
 };
+bool IsDouble(std::string);
+std::ostream& operator<<(std::ostream& os, const Point& point);
 
 
 #endif //AP_TASK2_POINT_H

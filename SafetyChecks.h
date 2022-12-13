@@ -5,9 +5,12 @@
 #ifndef AP_TASK2_SAFETYCHECKS_H
 #define AP_TASK2_SAFETYCHECKS_H
 
-#include <iostream>
-
+#include "Point.h"
 bool NumberOfArguments(int);
-bool PointsCount(int, int);
-
+bool PointsCount(long, long);
+bool KCheck(std::string);
+bool IsSameSize(std::vector<Point>);
+bool GoodVector(Point, Point);
+bool CheckFile (std::string const &);
+bool CheckMetric(std::string);
 #endif //AP_TASK2_SAFETYCHECKS_H

@@ -16,10 +16,10 @@ bool NumberOfArguments(int argc){
         return true;
     }
     else if (argc < 4){
-        std::cout << "Insufficient information please try to add more arguments in the command line" << std::endl;
+        std::cout << "Insufficient information please enter more arguments in the command line" << std::endl;
     }
     else {
-        std::cout << "Too much information please try to add less arguments in the command line" << std::endl;
+        std::cout << "Too much information please enter less arguments in the command line" << std::endl;
     }
     return false;
 
@@ -38,10 +38,10 @@ bool PointsCount(long k, long amountOfPoints){
         return true;
     }
     else if (k <= 0){
-        std::cout << "K is too small please try to enter a bigger number as K" << std::endl;
+        std::cout << "K is too small, please enter a bigger number as K" << std::endl;
     }
     else{
-        std::cout << "K is too big please try to enter a smaller number as K" << std::endl;
+        std::cout << "K is too big, please enter a smaller number as K" << std::endl;
     }
     return false;
 }
@@ -58,7 +58,7 @@ bool KCheck(std::string k){
     if (firstDigit >= 0 && firstDigit < 10){
         return true;
     }
-    std::cout << "k should be a number" << std::endl;
+    std::cout << "K should be a number" << std::endl;
     return false;
 }
 
@@ -144,6 +144,6 @@ bool CheckMetric(std::string metric){
         //Meaning its MIN.
         return true;
     }
-    std::cout << "The distance metric is not valid." << std::endl;
+    std::cout << "Invalid metric name." << std::endl;
     return false;
 }

@@ -23,18 +23,21 @@ int main(int argc, char **argv) {
             k = std::stoi(argv[1]);
         } else {
             //K is equal 0, so we need to terminate the program.
+            std::cout << "K is not a valid number" << std::endl;
             return 0;
         }
         //Saving the file name.
         std::string file = argv[2];
         if (!CheckFile(file)) {
             //The file doesn't end with .csv so we need to terminate the program.
+            std::cout << "The file doesn't end with .csv" << std::endl;
             return 0;
         }
         //Saving the distance metric.
         std::string metric = argv[3];
         if (!CheckMetric(metric)) {
             //The metric isn't one of the given 5 so we need to terminate the program.
+            std::cout << "Incorrect metric type" << std::endl;
             return 0;
         }
         //Create classified vector.
@@ -49,7 +52,7 @@ int main(int argc, char **argv) {
             return 0;
         }
         if(!IsSameSize(classifiedPoints)){
-            std::cout << "not all vectors are the same size, please use a different file." << std::endl;
+            std::cout << "Not all vectors are valid, please use a different file." << std::endl;
             return 0;
         }
         //initializing a run of KNN
@@ -63,11 +66,10 @@ int main(int argc, char **argv) {
                 std::string sPoint;
                 getline(std::cin, sPoint);
                 //uPoint = unclassified point.
-                //The types don't match here. this function takes a vector<string> and not a regular char*.
                 uPoint.setFromString(sPoint, ' ');
                 if (!GoodVector(uPoint, classifiedPoints[0])){
                     if (!uPoint.getAll().empty()) {
-                        std::cout << "Please enter the correct amount of arguments into the vector." << std::endl;
+                        std::cout << "Please enter the correct number of arguments into the vector." << std::endl;
                     }
                 } else {
                     std::cout << knn_run.predict(uPoint) << std::endl;
@@ -77,7 +79,7 @@ int main(int argc, char **argv) {
         }
     }
     else {
-        std::cout << "Not all arguments are given please enter the K, file and distance metric." << std::endl;
+        std::cout << "Insufficient arguments. Please enter a K, file and distance metric." << std::endl;
     }
 
 

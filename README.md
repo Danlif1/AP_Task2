@@ -42,7 +42,7 @@ g++ -std=c++11  ex2.cpp CalcDist.cpp KNN.cpp Point.cpp PointReader.cpp SafetyChe
 
 You can also use the attached Makefile with the following command:
 ```
-make a.out
+make
 ```
 
 To run on linux/mac: 

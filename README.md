@@ -53,7 +53,7 @@ To run on Windows:
 ```
 a.out k file distancemetric
 ```
-**Make sure the classified .csv file is in your working directory otherwise the program won't be able to find it.**
+**If the file isn't given with the proper path, it must be in your working directory.**
 <br>**The argument in the run command consists of 3 parts:**
 * K - number of neighbors to check.
   * K must be a number bigger than zero and smaller than the number of vectors in the .csv file.
